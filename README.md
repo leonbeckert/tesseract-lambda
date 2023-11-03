@@ -37,6 +37,7 @@ To customize the languages included in your build, you will need to modify the `
 - `tessdata`: This is the standard version with a balance between size and accuracy.
 - `tessdata_fast`: These are smaller, less accurate files optimized for speed and size.
 - `tessdata_best`: These files are larger and more accurate but may cause you to reach the Lambda layer size limit more quickly.
+
 Here's an excerpt from the Dockerfile where you can set the environment variable:
 
   ```Dockerfile
@@ -114,10 +115,9 @@ Once Tesseract has been built and the `tesseract.zip` file has been created insi
   cd tesseract
   unzip tesseract.zip -d /path/to/your/lambda-layer/tesseract-layer
   ```
-
 Replace /path/to/your/lambda-layer with the actual path to your Lambda Layer directory. This step will create a tesseract-layer directory within your Lambda Layer directory with all the necessary binaries and files for Tesseract.
 
-1. In your serverless.yml file, define the layer with its path and specify the runtimes that are compatible with the Tesseract binaries. Below is an example configuration:
+2. In your serverless.yml file, define the layer with its path and specify the runtimes that are compatible with the Tesseract binaries. Below is an example configuration:
 
   ```yml
   # serverless.yml
